@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 col-md-offset-1">
+            <form action=@Url.Action("Login", "Auth") method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" class="form-control" id="username" placeholder="Enter your username" value=@(ViewBag.username ?? "")>
+                    <small id="errorWithUsername" class="form-text error">
+                        @if (@ViewBag.usernameEmpty != null)
+                        {
+                            @ViewBag.usernameEmpty
+                        }
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                    <small id="errorWithUsername" class="form-text error">
+                        @if (@ViewBag.passwordEmpty != null)
+                        {
+                            @ViewBag.passwordEmpty
+                        }
+                    </small>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-4 col-md-offset-1">
+            <div class="em-font-12">
+                Log in to get access to the ongoing products in the aution. You will get the opportunity to view the products and what is more to place bid on any of them as soon as you have enough coins.
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="text-center">
+                <div class="error">
+                    @if (@ViewBag.massError != null)
+                    {
+                        @ViewBag.massError
+                    }
+                    else
+                    {
+                        @(ViewBag.errorNotExisting ?? "")
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
