@@ -332,6 +332,7 @@ namespace WebAppAuctionSystem.Controllers
                 {
                     cookie.Expires = DateTime.Now.AddDays(-1);
                     Response.Cookies.Add(cookie);
+                    Response.Redirect(Request.RawUrl);
                 }
             }
             return false;
