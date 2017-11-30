@@ -10,10 +10,13 @@ namespace WebAppAuctionSystem.Controllers
     {
         LoginServiceReference.LoginServiceClient wcfClient;
         UserServiceReference.UserServiceClient wcfUserService;
+        ZipServiceReference.ZipServiceClient wcfZipService;
+
         public AuthController()
         {
             wcfClient = new LoginServiceReference.LoginServiceClient();
             wcfUserService = new UserServiceReference.UserServiceClient();
+            wcfZipService = new ZipServiceReference.ZipServiceClient();
         }
         // GET: Login
         public ActionResult Index()
@@ -27,6 +30,15 @@ namespace WebAppAuctionSystem.Controllers
             if (IsUserLoggedIn(Request.Cookies["auth"]))
             {
                 return Redirect("~/");
+            }
+            try
+            {
+                var zips = wcfZipService.GetAllZips();
+                ViewBag.zips = zips;
+            }
+            catch (Exception)
+            {
+                ViewBag.massError = "Internal server error please try again after 5 minutes";
             }
             return View("Register");
         }
@@ -43,6 +55,7 @@ namespace WebAppAuctionSystem.Controllers
             var zip = collection["zip"];
             var address = collection["address"];
             var gender = collection["gender"];
+            var zipId = collection["zip"];
 
             #region validation
             var valid = true;
@@ -139,6 +152,11 @@ namespace WebAppAuctionSystem.Controllers
                     valid = false;
                 }
             }
+            else
+            {
+                ViewBag.birthError = "Birth date is a required field";
+                valid = false;
+            }
 
             if (!string.IsNullOrWhiteSpace(phone))
             {
@@ -199,6 +217,8 @@ namespace WebAppAuctionSystem.Controllers
             }
             else
             {
+                ViewBag.zips = wcfZipService.GetAllZips();
+                ViewBag.selectedZipId = zipId;
                 ViewBag.username = username;
                 ViewBag.password = password;
                 ViewBag.name = name;

@@ -76,7 +76,15 @@
                 <div class="form-group">
                     <label for="zip">Select your Location</label>
                     <select class="form-control" name="zip" id="zip" required="required">
-                        <option value="1">Aalborg</option>
+                        @foreach (var zip in ViewBag.zips)
+                        {
+                            <option value="@zip.Id"
+                            @if (ViewBag.selectedZipId != null && ViewBag.selectedZipId == zip.Id.ToString())
+                            {
+                                @: selected = "selected"
+                                    }
+                            >@zip.Country, @zip.City</option>
+                        }
                     </select>
                 </div>
 
@@ -95,7 +103,7 @@
                     <label class="form-check-label">
                         <input class="form-check-input" type="radio" name="gender" value="0"
                                @if (ViewBag.gender == "0") { @: checked
-                                                                                             }>
+                                                              }>
                         Male
                     </label>
                 </div>
@@ -103,7 +111,7 @@
                     <label class="form-check-label">
                         <input class="form-check-input" type="radio" name="gender" value="1"
                                @if (ViewBag.gender == "1") { @: checked
-                                                                                             }>
+                                                                                                                            }>
                         Female
                     </label>
                 </div>
