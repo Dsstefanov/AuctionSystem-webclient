@@ -27,7 +27,7 @@ namespace WebAppAuctionSystem.Controllers
         [HttpGet]
         public ActionResult Register()
         {
-            if (IsUserLoggedIn(Request.Cookies["auth"]))
+            if (IsUserLoggedIn(Request, Response))
             {
                 return Redirect("~/");
             }
@@ -236,7 +236,7 @@ namespace WebAppAuctionSystem.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-            if (IsUserLoggedIn(Request.Cookies["auth"]))
+            if (IsUserLoggedIn(Request, Response))
             {
                 return Redirect("~/");
             }
@@ -318,24 +318,46 @@ namespace WebAppAuctionSystem.Controllers
         ///     Returns false when user is not logged in and removed cookie
         /// </summary>
         /// <param name="cookie">Request.Cookies["auth"]</param>
-        public bool IsUserLoggedIn(HttpCookie cookie)
+        public bool IsUserLoggedIn(HttpRequestBase request, HttpResponseBase response)
         {
+            var cookie = request.Cookies["auth"];
             if (cookie != null && !string.IsNullOrWhiteSpace(cookie.Value))
             {
                 if (wcfUserService.IsCookieValid(cookie.Value))
                 {
                     cookie.Expires = DateTime.Now.AddDays(3);
-                    Response.Cookies.Add(cookie);
+                    response.Cookies.Add(cookie);
                     return true;
                 }
                 else
                 {
                     cookie.Expires = DateTime.Now.AddDays(-1);
-                    Response.Cookies.Add(cookie);
-                    Response.Redirect(Request.RawUrl);
+                    response.Cookies.Add(cookie);
+                    response.Redirect(request.RawUrl);
                 }
             }
             return false;
+        }
+        public int GetUserIdByCookie(HttpCookie cookie)
+        {
+
+            if (cookie != null && wcfUserService.IsCookieValid(cookie.Value))
+            {
+                var user = wcfUserService.GetUserByCookie(cookie.Value);
+                if (user != null)
+                {
+                    var userId = user.Id;
+                    return userId;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

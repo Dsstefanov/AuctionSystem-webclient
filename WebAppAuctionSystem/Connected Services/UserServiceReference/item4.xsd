@@ -33,7 +33,7 @@
   <xs:element name="ArrayOfProductDto" nillable="true" type="tns:ArrayOfProductDto" />
   <xs:complexType name="ProductDto">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Bids" nillable="true" type="tns:ArrayOfBidDto" />
+      <xs:element minOccurs="0" name="Bids" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
@@ -56,10 +56,10 @@
       <xs:element minOccurs="0" name="Coins" type="xs:int" />
       <xs:element minOccurs="0" name="DateOfCreated" type="xs:dateTime" />
       <xs:element minOccurs="0" name="IsWon" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:ProductDto" />
       <xs:element minOccurs="0" name="ProductId" type="xs:int" />
-      <xs:element minOccurs="0" name="User" nillable="true" type="tns:UserDto" />
+      <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="BidDto" nillable="true" type="tns:BidDto" />

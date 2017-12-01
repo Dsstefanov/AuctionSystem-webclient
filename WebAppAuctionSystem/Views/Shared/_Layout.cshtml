@@ -24,7 +24,10 @@
                         <li>@Html.ActionLink("Login", "Index", "Auth")</li>
                         <li>@Html.ActionLink("Register", "Register", "Auth")</li>
                     }
-                </ul>
+                    else
+                    {
+                        <li>@Html.ActionLink("My Profile", "Edit", "User", new { userId = @ViewBag.userId ?? 0 }, new { })</li>
+                    }</ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (Request.Cookies["auth"] != null)
                     {

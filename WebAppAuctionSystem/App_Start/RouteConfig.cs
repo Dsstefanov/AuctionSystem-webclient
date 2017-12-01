@@ -15,14 +15,20 @@ namespace WebAppAuctionSystem
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "",
+                defaults: new { controller = "Home", action = "Index" }
             );
 
             routes.MapRoute(
-                name: "Login",
-                url: "{controller}/{action}",
-                defaults: new { controller = "Auth", action = "Index" }
+                name: "Auth",
+                url: "Auth/{action}",
+                defaults: new {controller="Auth", action = "Index" }
+            );
+
+            routes.MapRoute(
+                name: "User",
+                url: "User/Edit/{userId}",
+                defaults: new { controller="User", action = "Edit", userId = @"\d+" }
             );
         }
     }

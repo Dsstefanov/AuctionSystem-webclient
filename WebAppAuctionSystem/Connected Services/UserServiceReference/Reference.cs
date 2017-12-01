@@ -1278,7 +1278,7 @@ namespace WebAppAuctionSystem.UserServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebAppAuctionSystem.UserServiceReference.BidDto[] BidsField;
+        private string BidsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
@@ -1315,7 +1315,7 @@ namespace WebAppAuctionSystem.UserServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebAppAuctionSystem.UserServiceReference.BidDto[] Bids {
+        public string Bids {
             get {
                 return this.BidsField;
             }
@@ -1460,16 +1460,16 @@ namespace WebAppAuctionSystem.UserServiceReference {
         private bool IsWonField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebAppAuctionSystem.UserServiceReference.ProductDto ProductField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ProductIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebAppAuctionSystem.UserServiceReference.UserDto UserField;
+        private string ProductNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int UserIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsernameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1521,19 +1521,6 @@ namespace WebAppAuctionSystem.UserServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebAppAuctionSystem.UserServiceReference.ProductDto Product {
-            get {
-                return this.ProductField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProductField, value) != true)) {
-                    this.ProductField = value;
-                    this.RaisePropertyChanged("Product");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public int ProductId {
             get {
                 return this.ProductIdField;
@@ -1547,14 +1534,14 @@ namespace WebAppAuctionSystem.UserServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebAppAuctionSystem.UserServiceReference.UserDto User {
+        public string ProductName {
             get {
-                return this.UserField;
+                return this.ProductNameField;
             }
             set {
-                if ((object.ReferenceEquals(this.UserField, value) != true)) {
-                    this.UserField = value;
-                    this.RaisePropertyChanged("User");
+                if ((object.ReferenceEquals(this.ProductNameField, value) != true)) {
+                    this.ProductNameField = value;
+                    this.RaisePropertyChanged("ProductName");
                 }
             }
         }
@@ -1568,6 +1555,19 @@ namespace WebAppAuctionSystem.UserServiceReference {
                 if ((this.UserIdField.Equals(value) != true)) {
                     this.UserIdField = value;
                     this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Username {
+            get {
+                return this.UsernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                    this.UsernameField = value;
+                    this.RaisePropertyChanged("Username");
                 }
             }
         }
@@ -1686,6 +1686,8 @@ namespace WebAppAuctionSystem.UserServiceReference {
         System.Threading.Tasks.Task CreateUserAsync(WebAppAuctionSystem.UserServiceReference.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateUser", ReplyAction="http://tempuri.org/IUserService/UpdateUserResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IUserService/UpdateUserArgumentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentNullException), Action="http://tempuri.org/IUserService/UpdateUserArgumentNullExceptionFault", Name="ArgumentNullException", Namespace="http://schemas.datacontract.org/2004/07/System")]
         bool UpdateUser(WebAppAuctionSystem.UserServiceReference.UserDto user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateUser", ReplyAction="http://tempuri.org/IUserService/UpdateUserResponse")]
@@ -1756,6 +1758,12 @@ namespace WebAppAuctionSystem.UserServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/AddCookie", ReplyAction="http://tempuri.org/IUserService/AddCookieResponse")]
         System.Threading.Tasks.Task<string> AddCookieAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUserByCookie", ReplyAction="http://tempuri.org/IUserService/GetUserByCookieResponse")]
+        WebAppAuctionSystem.UserServiceReference.UserDto GetUserByCookie(string cookieId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUserByCookie", ReplyAction="http://tempuri.org/IUserService/GetUserByCookieResponse")]
+        System.Threading.Tasks.Task<WebAppAuctionSystem.UserServiceReference.UserDto> GetUserByCookieAsync(string cookieId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1887,6 +1895,14 @@ namespace WebAppAuctionSystem.UserServiceReference {
         
         public System.Threading.Tasks.Task<string> AddCookieAsync(int userId) {
             return base.Channel.AddCookieAsync(userId);
+        }
+        
+        public WebAppAuctionSystem.UserServiceReference.UserDto GetUserByCookie(string cookieId) {
+            return base.Channel.GetUserByCookie(cookieId);
+        }
+        
+        public System.Threading.Tasks.Task<WebAppAuctionSystem.UserServiceReference.UserDto> GetUserByCookieAsync(string cookieId) {
+            return base.Channel.GetUserByCookieAsync(cookieId);
         }
     }
 }

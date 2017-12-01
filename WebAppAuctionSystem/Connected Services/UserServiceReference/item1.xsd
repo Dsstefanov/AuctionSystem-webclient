@@ -184,4 +184,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetUserByCookie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cookieId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserByCookieResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/AuctionSystem.Models.DTOs" minOccurs="0" name="GetUserByCookieResult" nillable="true" type="q14:UserDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

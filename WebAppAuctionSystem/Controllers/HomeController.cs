@@ -9,14 +9,24 @@ namespace WebAppAuctionSystem.Controllers
     public class HomeController : Controller
     {
         UserServiceReference.UserServiceClient userServiceClient;
+        AuthController authController;
 
         public HomeController()
         {
             userServiceClient = new UserServiceReference.UserServiceClient();
+            authController = new AuthController();
         }
         public ActionResult Index()
         {
-            return View("Index");
+            if (authController.IsUserLoggedIn(Request, Response))
+            {
+                ViewBag.userId = new AuthController().GetUserIdByCookie(Request.Cookies["auth"]);
+                return View("Index");
+            }
+            else
+            {
+                return View("Index");
+            }
         }
 
         //public ActionResult About()
