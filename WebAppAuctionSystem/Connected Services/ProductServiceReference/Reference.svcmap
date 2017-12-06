@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d87800a3-3736-442c-9314-733bbeeeaba8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ProductService.wsdl" MetadataType="Wsdl" ID="2d41f579-8219-418f-b5cc-249ac6a058a8" SourceId="1" SourceUrl="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?wsdl" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="e8b1b570-55b9-4e84-93f5-9ec6edffad5a" SourceId="1" SourceUrl="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd4" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="bc450d16-a488-4add-b66b-8c2efa32feca" SourceId="1" SourceUrl="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd5" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="8172dd7a-e8be-4cd9-ad34-79841e7e4050" SourceId="1" SourceUrl="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd2" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="d8d0cf35-2f28-4dca-9182-ab02af9cbaec" SourceId="1" SourceUrl="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd3" />
+    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="0430aa3d-5d01-4b67-a8c3-5bc85c0bf1e4" SourceId="1" SourceUrl="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd0" />
+    <MetadataFile FileName="item5.xsd" MetadataType="Schema" ID="5124e175-9e3f-4767-bb95-3ebc07901d8b" SourceId="1" SourceUrl="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd1" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="bc86ea8c-2816-41e0-aa3c-34d34b8be056" SourceId="1" SourceUrl="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

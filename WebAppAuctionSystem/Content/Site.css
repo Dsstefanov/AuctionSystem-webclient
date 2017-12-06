@@ -44,3 +44,66 @@ textarea {
 a.button:hover{
     cursor: pointer;
 }
+.timer {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+.product-name {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.price{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.price-block{
+    margin-bottom: 15px;
+    text-align: center;
+}
+.product-description {
+    margin-bottom: 10px;
+    line-height: 15px;
+    max-height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    height: 30px;
+    -webkit-box-orient: vertical;
+}
+.relative{
+    position: relative;
+}
+.absolute{
+    position: absolute;
+}
+.width-49{
+    width: 49%;
+ }
+.buttons-block{
+    margin-bottom: 10px;
+}
+.product-block {
+    border: 1px solid lightgray;
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+.hidden{
+    display: none;
+}
+.heading-24{
+    font-size: 24px;
+}
+.heading-15{
+    font-size: 15px;
+}
+.font-weight-medium{
+    font-weight: 600;
+}
+.heading-18{
+    font-size: 18px;
+}

@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Catalog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+            @foreach (var product in ViewBag.products)
+            {
+                <div class="col-md-3 col-lg-offset-1 product-block">
+                    <div class="timer"><span class="hidden">@(Math.Floor((DateTime.Now - product.EndDate).TotalSeconds * -1))</span><span class="days"></span><span class="hours"></span><span> : </span><span class="minutes"></span><span> : </span><span class="seconds"></span></div>
+                    <div class="product-name">@product.Name</div>
+                    <div class="price-block">Current price: <span class="price">@product.Price</span></div>
+                    <div class="product-description">@product.Description</div>
+                    <div class="buttons-block">
+                        <button type="button" class="btn btn-default width-49" onclick="location='/products/@product.Id'">Read more</button>
+                        <button type="button" class="btn btn-success width-49">Bid</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    //gets all timers then in foreach loop sets a timer foreach one of them
+    jQuery('document').ready(() => {
+        
+        var timers = jQuery('.timer');
+        var started = 0;
+        for (let i = 0; i < timers.length; i++) {
+            setInterval(countdown, 1000, timers[i]);
+            countdown(timers[i]);
+            function countdown(element) {
+                timer = element;
+                let timeLeft = element.childNodes[0].innerHTML;
+                if (timeLeft <= 0) {
+                    //doSomething();
+                } else {
+                    timeLeft--; 
+
+                    let days = Math.floor(timeLeft/(3600*24))
+                    let hours = Math.floor((timeLeft / 3600) % 24) > 9 ? Math.floor((timeLeft / 3600) % 24) : "0" + Math.floor((timeLeft / 3600) % 24)
+                    let minutes = Math.floor((timeLeft % 3600) / 60) > 9 ? Math.floor((timeLeft % 3600) / 60) : "0" + Math.floor((timeLeft % 3600) / 60)
+                    let seconds = Math.floor((timeLeft % 3600) % 60) > 9 ? Math.floor((timeLeft % 3600) % 60) : "0" + Math.floor((timeLeft % 3600) % 60)
+
+                    timer.childNodes[0].innerHTML = timeLeft;
+                    timer.childNodes[1].innerHTML = days +"d  "
+                    timer.childNodes[2].innerHTML = hours;
+                    timer.childNodes[4].innerHTML = minutes;
+                    timer.childNodes[6].innerHTML = seconds;
+                }
+            }
+        }
+    })
+</script>

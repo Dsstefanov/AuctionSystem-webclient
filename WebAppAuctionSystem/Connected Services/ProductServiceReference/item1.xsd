@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/AuctionSystem.Models.DTOs" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AuctionSystem.Models.DTOs" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:complexType name="ProductDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bids" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="Image" nillable="true" type="q1:ArrayOfNullableOfunsignedByte" />
+      <xs:element minOccurs="0" name="IsAvailable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductDto" nillable="true" type="tns:ProductDto" />
+  <xs:complexType name="ArrayOfProductDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductDto" nillable="true" type="tns:ProductDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductDto" nillable="true" type="tns:ArrayOfProductDto" />
+</xs:schema>

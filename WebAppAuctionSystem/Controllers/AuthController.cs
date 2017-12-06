@@ -289,7 +289,7 @@ namespace WebAppAuctionSystem.Controllers
                 else
                 {
                     ViewBag.username = username;
-                    ViewBag.errorNotExisting = "The given credentials does not match";
+                    ViewBag.errorNotExisting = "The given credentials do not match";
                     return View("Login");
                 }
             }
@@ -338,6 +338,7 @@ namespace WebAppAuctionSystem.Controllers
             }
             return false;
         }
+
         public int GetUserIdByCookie(HttpCookie cookie)
         {
 
@@ -358,6 +359,19 @@ namespace WebAppAuctionSystem.Controllers
             {
                 return 0;
             }
+        }
+
+        public bool IsUserAdmin(HttpRequestBase request)
+        {
+            if (request.Cookies["auth"] != null)
+            {
+                if (wcfUserService.IsCookieValid(request.Cookies["auth"].Value))
+                {
+                    var user = wcfUserService.GetUserByCookie(request.Cookies["auth"].Value);
+                    return user.IsAdmin;
+                }
+            }
+            return false;
         }
     }
 }

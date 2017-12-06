@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = ViewBag.name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="text-center">
+                    <div class="heading-24 font-weight-medium">@ViewBag.name</div>
+                    <div class="heading-15 font-weight-medium">@(ViewBag.available ? "Available" : "Finished")</div>
+                    <div class="row">&nbsp;</div>
+                    <div class="heading-15 font-weight-medium">@(ViewBag.available ? "Current price" : "Sold"): @ViewBag.price</div>
+                    <div class="row">&nbsp;</div>
+                </div>
+            </div>
+            <div class="row">&nbsp;</div>
+            <div class="row">
+                <div class="heading-18 font-weight-medium">Description</div>
+                <div class="row">&nbsp;</div>
+                <p>
+                    @ViewBag.description
+                </p>
+            </div>
+            <div class="row">&nbsp;</div>
+            <div class="row">
+                <div class="heading-18 font-weight-medium">Start Date</div>
+                <div class="row">&nbsp;</div>
+                <p>
+                    @ViewBag.startDate
+                </p>
+            </div>
+            <div class="row">&nbsp;</div>
+            <div class="row">
+                <div class="heading-18 font-weight-medium">End Date</div>
+                <div class="row">&nbsp;</div>
+                <p>
+                    @ViewBag.endDate
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="error">@ViewBag.massError</div>
+    </div>
+</div>
+
+

@@ -23,10 +23,7 @@ namespace WebAppAuctionSystem.Controllers
                 ViewBag.userId = new AuthController().GetUserIdByCookie(Request.Cookies["auth"]);
                 return View("Index");
             }
-            else
-            {
-                return View("Index");
-            }
+            return Redirect("~/Auth/Login");
         }
 
         //public ActionResult About()

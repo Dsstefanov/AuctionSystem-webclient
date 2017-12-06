@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 col-md-offset-1">
+            <form action=@Url.Action("Create", "Product") method="post">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter product name" value=@(ViewBag.name ?? "")>
+                    <small id="errorWithUsername" class="form-text error">
+                        @if (@ViewBag.nameError != null)
+                        {
+                            @ViewBag.nameError
+                        }
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" name="description" class="form-control" id="description" placeholder="Enter product name" value=@(ViewBag.description ?? "")>
+                    <small id="errorWithDescription" class="form-text error">
+                        @if (@ViewBag.descriptionError != null)
+                        {
+                            @ViewBag.descriptionError
+                        }
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" name="price" class="form-control" id="price" placeholder="Enter price" value=@(ViewBag.price ?? "")>
+                    <small id="errorWithPrice" class="form-text error">
+                        @if (@ViewBag.priceError != null)
+                        {
+                            @ViewBag.priceError
+                        }
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input type="text" name="startDate" class="form-control" id="startDate" placeholder="Enter product start date for auction " value=@(ViewBag.startDate ?? "")>
+                    <small id="errorWithStartDate" class="form-text error">
+                        @if (@ViewBag.startDateError != null)
+                        {
+                            @ViewBag.startDateError
+                        }
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="endDate">End Date</label>
+                    <input type="text" name="endDate" class="form-control" id="endDate" placeholder="Enter product expiry date for auction " value=@(ViewBag.endDate ?? "")>
+                    <small id="errorWithEndDate" class="form-text error">
+                        @if (@ViewBag.endDateError != null)
+                        {
+                            @ViewBag.endDateError
+                        }
+                    </small>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+

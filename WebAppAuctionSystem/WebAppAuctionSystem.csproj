@@ -149,6 +149,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ProductServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\UserServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -161,6 +166,7 @@
     </Compile>
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -175,6 +181,31 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\ProductServiceReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProductServiceReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProductServiceReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProductServiceReference\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProductServiceReference\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProductServiceReference\item5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProductServiceReference\ProductService.wsdl" />
+    <Content Include="Connected Services\ProductServiceReference\WebAppAuctionSystem.ProductServiceReference.ProductDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ProductServiceReference\WebAppAuctionSystem.ProductServiceReference.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\UserServiceReference\item.disco" />
     <None Include="Connected Services\UserServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\UserServiceReference\configuration.svcinfo" />
@@ -186,6 +217,13 @@
     <None Include="Connected Services\ZipServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\ZipServiceReference\configuration.svcinfo" />
     <None Include="Connected Services\ZipServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ProductServiceReference\item.disco" />
+    <None Include="Connected Services\ProductServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\ProductServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\ProductServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -262,7 +300,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -279,6 +319,9 @@
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\Product\Catalog.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -302,6 +345,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\LoginServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\ProductServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\UserServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\ZipServiceReference\" />
   </ItemGroup>

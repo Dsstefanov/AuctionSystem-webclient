@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/AuctionSystem.Models.Enums" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AuctionSystem.Models.Enums" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="Gender">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Male" />
+      <xs:enumeration value="Female" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Gender" nillable="true" type="tns:Gender" />
+  <xs:simpleType name="PaymentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PayPal" />
+      <xs:enumeration value="CreditCard" />
+      <xs:enumeration value="BankTransfer" />
+      <xs:enumeration value="AmazonPayment" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PaymentType" nillable="true" type="tns:PaymentType" />
+</xs:schema>
