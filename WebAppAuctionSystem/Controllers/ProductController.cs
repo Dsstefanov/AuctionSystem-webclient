@@ -23,15 +23,7 @@ namespace WebAppAuctionSystem.Controllers
             if (authController.IsUserLoggedIn(Request, Response))
             {
                 ViewBag.userId = authController.GetUserIdByCookie(Request.Cookies["auth"]);
-                var products = productServiceClient.GetAllProducts();
-                var availableProducts = new List<ProductServiceReference.ProductDto>();
-                foreach (var product in products)
-                {
-                    if (product.IsAvailable)
-                        availableProducts.Add(product);
-                }
-
-                ViewBag.products = availableProducts;
+                ViewBag.products = GetAvailableProductsWithBidPrice();
 
                 return View("Catalog");
             }
@@ -39,6 +31,30 @@ namespace WebAppAuctionSystem.Controllers
             {
                 return Redirect("~/Auth/Login");
             }
+        }
+
+        private IList<ProductServiceReference.ProductDto> GetAvailableProductsWithBidPrice()
+        {
+            var products = productServiceClient.GetAllProducts();
+            var availableProducts = new List<ProductServiceReference.ProductDto>();
+            foreach (var product in products)
+            {
+                if (product.IsAvailable)
+                    availableProducts.Add(product);
+            }
+            BidServiceReference.BidServiceClient bidServiceClient = new BidServiceReference.BidServiceClient();
+            foreach (var product in availableProducts)
+            {
+                var bidCollection = bidServiceClient.GetAllBidsByProductName(product.Name);
+                var bid = bidCollection.OrderByDescending(b => b.Coins).FirstOrDefault();
+                if (bid != null)
+                {
+                    product.Price = bid.Coins;
+                }
+            }
+
+
+            return availableProducts;
         }
 
         [HttpGet]
@@ -93,6 +109,10 @@ namespace WebAppAuctionSystem.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+            if (!authController.IsUserLoggedIn(Request, Response))
+            {
+                return Redirect("/auth/login");
+            }
             var productName = collection["name"];
             var productDescription = collection["description"];
             var productStartDate = collection["startDate"];
@@ -214,6 +234,139 @@ namespace WebAppAuctionSystem.Controllers
             ViewBag.startDate = productStartDate;
             ViewBag.endDate = productEndDate;
             return View("Create");
+        }
+
+        [HttpPost]
+        public ActionResult Index(FormCollection collection)
+        {
+            if (!authController.IsUserLoggedIn(Request, Response))
+            {
+                return Redirect("/auth/login");
+            }
+            //form indexes catalog-1, productPage - 2
+
+            ViewBag.userId = authController.GetUserIdByCookie(Request.Cookies["auth"]);
+            var formIndex = int.Parse(collection["form-index"]);
+            var productId = int.Parse(collection["product-id"]);
+            var userId = int.Parse(collection["user-id"]);
+            try
+            {
+                double coins = 0;
+
+                try
+                {
+                    coins = double.Parse(collection["coins"]);
+                }
+                catch (Exception)
+                {
+                    var coinsError = new Dictionary<int, string>
+                        {
+                            { productId, "Coins value must be a number" }
+                        };
+                    ViewBag.coinsError = coinsError;
+                    if (formIndex == 1)
+                    {
+                        ViewBag.products = GetAvailableProductsWithBidPrice();
+                        return View("Catalog");
+                    }
+                    else
+                    {
+                        return Show(productId);
+                    }
+                }
+                //if (IsUserHoldingLastBid(userId, productId))
+                //{
+                //    ViewBag.massError = "You are not allowed to overbid yourselve";
+                //    if (formIndex == 1)
+                //    {
+                //        ViewBag.products = GetAvailableProductsWithBidPrice();
+                //        return View("Catalog");
+                //    }
+                //    else
+                //    {
+                //        return Show(productId);
+                //    }
+                //}
+                BidServiceReference.BidServiceClient bidServiceClient = new BidServiceReference.BidServiceClient();
+                if (bidServiceClient.CheckCoinsValid(productId, coins))
+                {
+                    try
+                    {   
+                        bidServiceClient.MakeBid(userId, productId, Convert.ToInt32(Math.Round(coins)));
+                        ViewBag.successMessage = "Your bid was successfully placed";
+                        if (formIndex == 1)
+                        {
+                            ViewBag.products = GetAvailableProductsWithBidPrice();
+                            return View("Catalog");
+                        }
+                        else
+                        {
+                            return Show(productId);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        ViewBag.massError = e.Message;
+                        if (formIndex == 1)
+                        {
+                            var coinsValue = new Dictionary<int, double>
+                        {
+                            { productId, coins }
+                        };
+                            ViewBag.coins = coinsValue;
+                            ViewBag.products = GetAvailableProductsWithBidPrice();
+                            return View("Catalog");
+                        }
+                        else
+                        {
+                            return Show(productId);
+                        }
+                    }
+                }
+                else
+                {
+                    ViewBag.massError = "Inserted coins bid is lower than the actual bid";
+                    if (formIndex == 1)
+                    {
+                        var coinsValue = new Dictionary<int, double>
+                        {
+                            { productId, coins }
+                        };
+                        ViewBag.coins = coinsValue;
+                        ViewBag.products = GetAvailableProductsWithBidPrice();
+                        return View("Catalog");
+                    }
+                    else
+                    {
+                        return Show(productId);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                ViewBag.massError = "Internal server error please try again later";
+                if (formIndex == 1)
+                {
+                    ViewBag.products = GetAvailableProductsWithBidPrice();
+                    return View("Catalog");
+                }
+                else
+                {
+                    return Show(productId);
+                }
+            }
+        }
+
+        private bool IsUserHoldingLastBid(int userId, int productId)
+        {
+            BidServiceReference.BidServiceClient bidServiceClient = new BidServiceReference.BidServiceClient();
+            var bidCollection = bidServiceClient.GetAllBidsByProductId(productId);
+            var bid = bidCollection.OrderByDescending(b => b.Coins).FirstOrDefault();
+            if (bid != null && bid.UserId == userId)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

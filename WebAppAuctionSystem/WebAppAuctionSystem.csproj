@@ -144,6 +144,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Connected Services\BidServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\LoginServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -174,6 +179,34 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\BidServiceReference\BidService.wsdl" />
+    <None Include="Connected Services\BidServiceReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BidServiceReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BidServiceReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BidServiceReference\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BidServiceReference\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BidServiceReference\item5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\BidServiceReference\WebAppAuctionSystem.BidServiceReference.Bid.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BidServiceReference\WebAppAuctionSystem.BidServiceReference.BidDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\BidServiceReference\item6.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\LoginServiceReference\item.disco" />
     <None Include="Connected Services\LoginServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\LoginServiceReference\configuration.svcinfo" />
@@ -200,6 +233,13 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ProductServiceReference\ProductService.wsdl" />
+    <None Include="Connected Services\BidServiceReference\item.disco" />
+    <None Include="Connected Services\BidServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\BidServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\BidServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Connected Services\ProductServiceReference\WebAppAuctionSystem.ProductServiceReference.ProductDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -344,6 +384,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\BidServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\LoginServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\ProductServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\UserServiceReference\" />

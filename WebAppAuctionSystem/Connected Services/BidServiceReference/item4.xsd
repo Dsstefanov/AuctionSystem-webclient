@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/AuctionSystem.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AuctionSystem.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService/BidService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import schemaLocation="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService/BidService/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/AuctionSystem.Models.Enums" />
+  <xs:complexType name="Bid">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Coins" type="xs:int" />
+      <xs:element minOccurs="0" name="DateOfCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsWon" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+      <xs:element minOccurs="0" name="ProductId" type="xs:int" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Bid" nillable="true" type="tns:Bid" />
+  <xs:complexType name="Product">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bids" nillable="true" type="tns:ArrayOfBid" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="Image" nillable="true" type="q1:ArrayOfNullableOfunsignedByte" />
+      <xs:element minOccurs="0" name="IsAvailable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:complexType name="ArrayOfBid">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Bid" nillable="true" type="tns:Bid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBid" nillable="true" type="tns:ArrayOfBid" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Bids" nillable="true" type="tns:ArrayOfBid" />
+      <xs:element minOccurs="0" name="Coins" type="xs:int" />
+      <xs:element minOccurs="0" name="DateOfBirth" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AuctionSystem.Models.Enums" minOccurs="0" name="Gender" type="q2:Gender" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Invoices" nillable="true" type="tns:ArrayOfInvoice" />
+      <xs:element minOccurs="0" name="IsAdmin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Payments" nillable="true" type="tns:ArrayOfPayment" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RememberToken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zip" nillable="true" type="tns:Zip" />
+      <xs:element minOccurs="0" name="ZipId" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfInvoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Invoice" nillable="true" type="tns:Invoice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoice" nillable="true" type="tns:ArrayOfInvoice" />
+  <xs:complexType name="Invoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+      <xs:element minOccurs="0" name="ProductId" type="xs:int" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Invoice" nillable="true" type="tns:Invoice" />
+  <xs:complexType name="ArrayOfPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Payment" nillable="true" type="tns:Payment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPayment" nillable="true" type="tns:ArrayOfPayment" />
+  <xs:complexType name="Payment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="PaymentTypeCode" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AuctionSystem.Models.Enums" minOccurs="0" name="Type" type="q3:PaymentType" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Payment" nillable="true" type="tns:Payment" />
+  <xs:complexType name="Zip">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Zip" nillable="true" type="tns:Zip" />
+</xs:schema>

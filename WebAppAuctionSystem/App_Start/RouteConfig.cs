@@ -43,10 +43,10 @@ namespace WebAppAuctionSystem
                 defaults: new { controller = "Product", action = "Create" }
             );
             routes.MapRoute(
-                 name: "ShowProduct-admin",
+                 name: "ShowProduct",
                  url: "Products/{productId}",
                  defaults: new { controller = "Product", action = "Show", productId = @"\d+" }
-             );
+            );
         }
     }
 }
