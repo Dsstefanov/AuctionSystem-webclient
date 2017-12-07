@@ -46,6 +46,10 @@ namespace WebAppAuctionSystem.Controllers
         [HttpPost]
         public ActionResult Register(FormCollection collection)
         {
+            if(IsUserLoggedIn(Request, Response))
+            {
+                return Redirect("~/");
+            }
             var username = collection["username"];
             var name = collection["name"];
             var birth = collection["birthday"];
@@ -246,6 +250,10 @@ namespace WebAppAuctionSystem.Controllers
         [HttpPost]
         public ActionResult Login(FormCollection collection)
         {
+            if (IsUserLoggedIn(Request, Response))
+            {
+                return Redirect("~/");
+            }
             var isAuthenticated = false;
             var username = collection["username"];
             var password = collection["password"];
@@ -372,6 +380,11 @@ namespace WebAppAuctionSystem.Controllers
                 }
             }
             return false;
+        }
+
+        public UserServiceReference.UserDto GetUserLoggedUser(HttpRequestBase request)
+        {
+            return new UserServiceReference.UserServiceClient().GetUserByCookie(request.Cookies["auth"].Value);
         }
     }
 }

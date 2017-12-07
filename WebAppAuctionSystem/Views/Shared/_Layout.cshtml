@@ -20,21 +20,34 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @if (Request.Cookies["auth"] == null)
+                    @if (Request.Cookies["auth"] != null)
                     {
-                        <li>@Html.ActionLink("Login", "Index", "Auth")</li>
-                        <li>@Html.ActionLink("Register", "Register", "Auth")</li>
-                    }
-                    else
-                    {
-                        <li>@Html.ActionLink("My Profile", "Edit", "User", new { userId = @ViewBag.userId ?? 0 }, new { })</li>
                         <li>@Html.ActionLink("Catalog", "Index", "Product")</li>
-                    }</ul>
+                        if (ViewBag.user != null && ViewBag.user.IsAdmin)
+                        {
+                            <li>@Html.ActionLink("Create product", "Create", "Product")</li>
+                        }
+                    }
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (Request.Cookies["auth"] != null)
                     {
-                        <li><form action=@Url.Action("Logout", "Auth") method="post" id="logout-form"></form></li>
-                        <li><a class="button" onclick="jQuery('#logout-form').submit()">Logout</a></li>
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@ViewBag.user.Name - @ViewBag.user.Coins Coins</a>
+                            <div class="dropdown-menu navbar-inverse custom-dropdown">
+                                <div class="container">
+                                    <a class="dropdown-item" href="@Url.Action("Edit", "User", new { userId = ViewBag.user.Id})">My Profile</a>
+                                    <hr style="border: 0.5px solid lightslategrey;" />
+                                    <a class="dropdown-item button" onclick="jQuery('#logout-form').submit()">Log out</a>
+                                    <form action=@Url.Action("Logout", "Auth") method="post" id="logout-form"></form>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Index", "Auth")</li>
+                        <li>@Html.ActionLink("Register", "Register", "Auth")</li>
                     }
                 </ul>
             </div>

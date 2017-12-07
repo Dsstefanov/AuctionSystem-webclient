@@ -22,6 +22,7 @@ namespace WebAppAuctionSystem.Controllers
         {
             if (authController.IsUserLoggedIn(Request, Response))
             {
+                ViewBag.user = new UserServiceReference.UserServiceClient().GetUserByCookie(Request.Cookies["auth"].Value);
                 ViewBag.userId = authController.GetUserIdByCookie(Request.Cookies["auth"]);
                 ViewBag.products = GetAvailableProductsWithBidPrice();
 
@@ -64,8 +65,9 @@ namespace WebAppAuctionSystem.Controllers
             {
                 if (authController.IsUserAdmin(Request))
                 {
+                    ViewBag.user = new UserServiceReference.UserServiceClient().GetUserByCookie(Request.Cookies["auth"].Value);
                     var userId = authController.GetUserIdByCookie(Request.Cookies["auth"]);
-                    @ViewBag.userId = userId;
+                    ViewBag.userId = userId;
                     return View("Create");
                 }
             }
@@ -77,6 +79,7 @@ namespace WebAppAuctionSystem.Controllers
         {
             if (authController.IsUserLoggedIn(Request, Response))
             {
+                ViewBag.user = new UserServiceReference.UserServiceClient().GetUserByCookie(Request.Cookies["auth"].Value);
                 var userId = authController.GetUserIdByCookie(Request.Cookies["auth"]);
                 @ViewBag.userId = userId;
                 try
@@ -113,6 +116,7 @@ namespace WebAppAuctionSystem.Controllers
             {
                 return Redirect("/auth/login");
             }
+            ViewBag.user = new UserServiceReference.UserServiceClient().GetUserByCookie(Request.Cookies["auth"].Value);
             var productName = collection["name"];
             var productDescription = collection["description"];
             var productStartDate = collection["startDate"];
@@ -244,7 +248,7 @@ namespace WebAppAuctionSystem.Controllers
                 return Redirect("/auth/login");
             }
             //form indexes catalog-1, productPage - 2
-
+            ViewBag.user = new UserServiceReference.UserServiceClient().GetUserByCookie(Request.Cookies["auth"].Value);
             ViewBag.userId = authController.GetUserIdByCookie(Request.Cookies["auth"]);
             var formIndex = int.Parse(collection["form-index"]);
             var productId = int.Parse(collection["product-id"]);
@@ -276,7 +280,7 @@ namespace WebAppAuctionSystem.Controllers
                 }
                 //if (IsUserHoldingLastBid(userId, productId))
                 //{
-                //    ViewBag.massError = "You are not allowed to overbid yourselve";
+                //    ViewBag.massError = "You are not allowed to overbid yourself";
                 //    if (formIndex == 1)
                 //    {
                 //        ViewBag.products = GetAvailableProductsWithBidPrice();
@@ -304,9 +308,9 @@ namespace WebAppAuctionSystem.Controllers
                             return Show(productId);
                         }
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
-                        ViewBag.massError = e.Message;
+                        ViewBag.massError = "Internal server error, please try again after 5 minutes";
                         if (formIndex == 1)
                         {
                             var coinsValue = new Dictionary<int, double>

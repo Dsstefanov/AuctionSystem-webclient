@@ -20,24 +20,11 @@ namespace WebAppAuctionSystem.Controllers
         {
             if (authController.IsUserLoggedIn(Request, Response))
             {
+                ViewBag.user = authController.GetUserLoggedUser(Request);
                 ViewBag.userId = new AuthController().GetUserIdByCookie(Request.Cookies["auth"]);
                 return View("Index");
             }
             return Redirect("~/Auth/Login");
         }
-
-        //public ActionResult About()
-        //{
-        //    ViewBag.Message = "Your application description page.";
-
-        //    return View();
-        //}
-
-        //public ActionResult Contact()
-        //{
-        //    ViewBag.Message = "Your contact page.";
-
-        //    return View();
-        //}
     }
 }

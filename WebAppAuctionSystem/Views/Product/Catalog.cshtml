@@ -27,8 +27,8 @@
             @foreach (var product in ViewBag.products)
             {
                 <div class="col-md-3 col-lg-offset-1 product-block">
-                    <div class="timer">
-                        <span class="hidden">@(Math.Floor((DateTime.Now - product.EndDate).TotalSeconds * -1))</span>
+                        <div class="timer">
+                        <span class="hidden">@(Math.Floor((DateTime.UtcNow - product.EndDate).TotalSeconds * -1))</span>
                         <span class="days"></span>
                         <span class="hours"></span>
                         <span> : </span>
@@ -60,7 +60,7 @@
                     </form>
                     <div class="buttons-block">
                         <button type="button" class="btn btn-default width-49" onclick="location='/products/@product.Id'">Read more</button>
-                        <button type="button" class="btn btn-success width-49" onclick="$('#make-bid-@product.Id').submit()">Bid</button>
+                        <button type="button" class="btn btn-success width-49" onclick="jQuery('#make-bid-@product.Id').submit()">Bid</button>
                     </div>
                 </div>
             }

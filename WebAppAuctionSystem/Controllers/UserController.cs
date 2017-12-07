@@ -23,6 +23,7 @@ namespace WebAppAuctionSystem.Controllers
         {
             if (authController.IsUserLoggedIn(Request, Response))
             {
+                ViewBag.user = new UserServiceReference.UserServiceClient().GetUserByCookie(Request.Cookies["auth"].Value);
                 ViewBag.zips = zipServiceClient.GetAllZips();
                 try
                 {
@@ -60,7 +61,11 @@ namespace WebAppAuctionSystem.Controllers
         [HttpPost]
         public ActionResult Edit(FormCollection collection, int userId)
         {
-
+            if(authController.IsUserLoggedIn(Request, Response))
+            {
+                return Redirect("~/auth/login");
+            }
+            ViewBag.user = new UserServiceReference.UserServiceClient().GetUserByCookie(Request.Cookies["auth"].Value);
             var username = collection["username"];
             var name = collection["name"];
             var birth = collection["birthday"];
