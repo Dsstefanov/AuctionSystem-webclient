@@ -43,6 +43,11 @@ namespace WebAppAuctionSystem
                 defaults: new { controller = "Product", action = "Create" }
             );
             routes.MapRoute(
+                 name: "BidExpired",
+                 url: "Products/BidExpired",
+                 defaults: new { controller = "Product", action = "BidExpired" }
+            );
+            routes.MapRoute(
                  name: "ShowProduct",
                  url: "Products/{productId}",
                  defaults: new { controller = "Product", action = "Show", productId = @"\d+" }

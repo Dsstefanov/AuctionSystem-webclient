@@ -33,7 +33,7 @@
                     @if (Request.Cookies["auth"] != null)
                     {
                         <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@ViewBag.user.Name - @ViewBag.user.Coins Coins</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@(ViewBag.user.Name ?? "") - @(ViewBag.user.Coins ?? "") Coins</a>
                             <div class="dropdown-menu navbar-inverse custom-dropdown">
                                 <div class="container">
                                     <a class="dropdown-item" href="@Url.Action("Edit", "User", new { userId = ViewBag.user.Id})">My Profile</a>

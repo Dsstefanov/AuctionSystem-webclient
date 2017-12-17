@@ -47,6 +47,9 @@ namespace WebAppAuctionSystem.ProductServiceReference {
         private decimal PriceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RowVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime StartDateField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -159,6 +162,19 @@ namespace WebAppAuctionSystem.ProductServiceReference {
                 if ((this.PriceField.Equals(value) != true)) {
                     this.PriceField = value;
                     this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RowVersion {
+            get {
+                return this.RowVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowVersionField, value) != true)) {
+                    this.RowVersionField = value;
+                    this.RaisePropertyChanged("RowVersion");
                 }
             }
         }
@@ -1001,6 +1017,9 @@ namespace WebAppAuctionSystem.ProductServiceReference {
         private decimal PriceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RowVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime StartDateField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -1118,6 +1137,19 @@ namespace WebAppAuctionSystem.ProductServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RowVersion {
+            get {
+                return this.RowVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowVersionField, value) != true)) {
+                    this.RowVersionField = value;
+                    this.RaisePropertyChanged("RowVersion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime StartDate {
             get {
                 return this.StartDateField;
@@ -1151,10 +1183,10 @@ namespace WebAppAuctionSystem.ProductServiceReference {
         System.Threading.Tasks.Task CreateProductAsync(WebAppAuctionSystem.ProductServiceReference.Product product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/UpdateProduct", ReplyAction="http://tempuri.org/IProductService/UpdateProductResponse")]
-        bool UpdateProduct(WebAppAuctionSystem.ProductServiceReference.Product product);
+        bool UpdateProduct(WebAppAuctionSystem.ProductServiceReference.ProductDto productDto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/UpdateProduct", ReplyAction="http://tempuri.org/IProductService/UpdateProductResponse")]
-        System.Threading.Tasks.Task<bool> UpdateProductAsync(WebAppAuctionSystem.ProductServiceReference.Product product);
+        System.Threading.Tasks.Task<bool> UpdateProductAsync(WebAppAuctionSystem.ProductServiceReference.ProductDto productDto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/DeleteProduct", ReplyAction="http://tempuri.org/IProductService/DeleteProductResponse")]
         bool DeleteProduct(WebAppAuctionSystem.ProductServiceReference.Product product);
@@ -1191,6 +1223,12 @@ namespace WebAppAuctionSystem.ProductServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetProductUsers", ReplyAction="http://tempuri.org/IProductService/GetProductUsersResponse")]
         System.Threading.Tasks.Task<WebAppAuctionSystem.ProductServiceReference.User[]> GetProductUsersAsync(WebAppAuctionSystem.ProductServiceReference.Product product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/MakeProductUnavailable", ReplyAction="http://tempuri.org/IProductService/MakeProductUnavailableResponse")]
+        bool MakeProductUnavailable(int productId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/MakeProductUnavailable", ReplyAction="http://tempuri.org/IProductService/MakeProductUnavailableResponse")]
+        System.Threading.Tasks.Task<bool> MakeProductUnavailableAsync(int productId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetAllProducts", ReplyAction="http://tempuri.org/IProductService/GetAllProductsResponse")]
         WebAppAuctionSystem.ProductServiceReference.ProductDto[] GetAllProducts();
@@ -1234,12 +1272,12 @@ namespace WebAppAuctionSystem.ProductServiceReference {
             return base.Channel.CreateProductAsync(product);
         }
         
-        public bool UpdateProduct(WebAppAuctionSystem.ProductServiceReference.Product product) {
-            return base.Channel.UpdateProduct(product);
+        public bool UpdateProduct(WebAppAuctionSystem.ProductServiceReference.ProductDto productDto) {
+            return base.Channel.UpdateProduct(productDto);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateProductAsync(WebAppAuctionSystem.ProductServiceReference.Product product) {
-            return base.Channel.UpdateProductAsync(product);
+        public System.Threading.Tasks.Task<bool> UpdateProductAsync(WebAppAuctionSystem.ProductServiceReference.ProductDto productDto) {
+            return base.Channel.UpdateProductAsync(productDto);
         }
         
         public bool DeleteProduct(WebAppAuctionSystem.ProductServiceReference.Product product) {
@@ -1288,6 +1326,14 @@ namespace WebAppAuctionSystem.ProductServiceReference {
         
         public System.Threading.Tasks.Task<WebAppAuctionSystem.ProductServiceReference.User[]> GetProductUsersAsync(WebAppAuctionSystem.ProductServiceReference.Product product) {
             return base.Channel.GetProductUsersAsync(product);
+        }
+        
+        public bool MakeProductUnavailable(int productId) {
+            return base.Channel.MakeProductUnavailable(productId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> MakeProductUnavailableAsync(int productId) {
+            return base.Channel.MakeProductUnavailableAsync(productId);
         }
         
         public WebAppAuctionSystem.ProductServiceReference.ProductDto[] GetAllProducts() {

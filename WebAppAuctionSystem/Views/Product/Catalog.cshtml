@@ -27,7 +27,7 @@
             @foreach (var product in ViewBag.products)
             {
                 <div class="col-md-3 col-lg-offset-1 product-block">
-                        <div class="timer">
+                    <div class="timer">
                         <span class="hidden">@(Math.Floor((DateTime.UtcNow - product.EndDate).TotalSeconds * -1))</span>
                         <span class="days"></span>
                         <span class="hours"></span>
@@ -35,6 +35,7 @@
                         <span class="minutes"></span>
                         <span> : </span>
                         <span class="seconds"></span>
+                        <span class="product-id hidden">@product.Id</span>
                     </div>
                     <div class="product-name">@product.Name</div>
                     <div class="price-block">Current bid: <span class="price">@product.Price</span></div>
@@ -68,18 +69,52 @@
     </div>
 </div>
 <script type="text/javascript">
+    function postToBidExpired(productId) {
+
+        var form = document.createElement("form")
+        form.setAttribute("method", "POST")
+        form.setAttribute("class", "hidden")
+        form.setAttribute("action", '@Url.Action("BidExpired", "Product")')
+
+        let hiddenField = document.createElement("input")
+        hiddenField.setAttribute("type", "hidden")
+        hiddenField.setAttribute("name", "product-id")
+        hiddenField.setAttribute("value", productId)
+
+        form.appendChild(hiddenField);
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+
     //gets all timers then in foreach loop sets a timer foreach one of them
     jQuery('document').ready(() => {
 
-        var timers = jQuery('.timer');
+        var timers = jQuery('.timer')
+        let intervals = []
         for (let i = 0; i < timers.length; i++) {
-            setInterval(countdown, 1000, timers[i]);
+            intervals[i] = setInterval(countdown, 1000, timers[i]);
             countdown(timers[i]);
             function countdown(element) {
                 timer = element;
                 let timeLeft = element.childNodes[1].innerHTML;
                 if (timeLeft <= 0) {
-                    //doSomething();
+                    let productId
+                    for (var i = 0; i < element.childNodes.length; i++) {
+                        if (element.childNodes[i].className === "product-id") {
+                            productId = element.childNodes[i].innerHTML
+                            break;
+                        }
+                    }
+                    productId = element.childNodes[15].innerHTML
+
+                    console.log(intervals)
+                    for (let j = 0; j < timers.length; j++) {                        
+                        clearInterval(intervals[j]);
+                    }
+                    if (productId != null) {
+                        postToBidExpired(productId)
+                    }
                 } else {
                     timeLeft--;
 
@@ -123,4 +158,5 @@
             }
         }
     })
+
 </script>

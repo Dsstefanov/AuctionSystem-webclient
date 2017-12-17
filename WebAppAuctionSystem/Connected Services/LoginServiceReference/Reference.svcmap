@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:9995/Design_Time_Addresses/AuctionSystem.WcfService.Contracts/LoginService/" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService.Contracts/LoginService/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="1d09cef7-5f99-4922-a5c1-54647b594a50" SourceId="1" SourceUrl="http://localhost:9995/Design_Time_Addresses/AuctionSystem.WcfService.Contracts/LoginService/?xsd=xsd1" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="70ae4d54-21df-4d5f-a654-d2c0200c613e" SourceId="1" SourceUrl="http://localhost:9995/Design_Time_Addresses/AuctionSystem.WcfService.Contracts/LoginService/?disco" />
-    <MetadataFile FileName="LoginService.wsdl" MetadataType="Wsdl" ID="8aad9387-042f-410f-85db-a108c2169d63" SourceId="1" SourceUrl="http://localhost:9995/Design_Time_Addresses/AuctionSystem.WcfService.Contracts/LoginService/?wsdl" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="e189c3dd-162e-41ae-a104-d2cb4e6698ce" SourceId="1" SourceUrl="http://localhost:9995/Design_Time_Addresses/AuctionSystem.WcfService.Contracts/LoginService/?xsd=xsd0" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="2cc002ae-e64d-49a2-81b3-d755fa470ea8" SourceId="1" SourceUrl="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService.Contracts/LoginService/?xsd=xsd1" />
+    <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="a11357d8-2096-43c3-b615-d03022349bd1" SourceId="1" SourceUrl="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService.Contracts/LoginService/?disco" />
+    <MetadataFile FileName="LoginService1.wsdl" MetadataType="Wsdl" ID="e26b3cdd-a876-41db-816f-7607c4f24af2" SourceId="1" SourceUrl="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService.Contracts/LoginService/?wsdl" />
+    <MetadataFile FileName="item21.xsd" MetadataType="Schema" ID="ad49fd5b-8f6b-4fd3-ba92-534fa75cdcae" SourceId="1" SourceUrl="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService.Contracts/LoginService/?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -204,6 +204,9 @@ namespace WebAppAuctionSystem.BidServiceReference {
         private decimal PriceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] RowVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime StartDateField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -316,6 +319,19 @@ namespace WebAppAuctionSystem.BidServiceReference {
                 if ((this.PriceField.Equals(value) != true)) {
                     this.PriceField = value;
                     this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] RowVersion {
+            get {
+                return this.RowVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RowVersionField, value) != true)) {
+                    this.RowVersionField = value;
+                    this.RaisePropertyChanged("RowVersion");
                 }
             }
         }
@@ -1130,6 +1146,15 @@ namespace WebAppAuctionSystem.BidServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBidService/IsBidWon", ReplyAction="http://tempuri.org/IBidService/IsBidWonResponse")]
         System.Threading.Tasks.Task<bool> IsBidWonAsync(WebAppAuctionSystem.BidServiceReference.Bid bid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBidService/BidExpired", ReplyAction="http://tempuri.org/IBidService/BidExpiredResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IBidService/BidExpiredArgumentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ServiceModel.FaultException), Action="http://tempuri.org/IBidService/BidExpiredFaultExceptionFault", Name="FaultException", Namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentNullException), Action="http://tempuri.org/IBidService/BidExpiredArgumentNullExceptionFault", Name="ArgumentNullException", Namespace="http://schemas.datacontract.org/2004/07/System")]
+        bool BidExpired(int productId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBidService/BidExpired", ReplyAction="http://tempuri.org/IBidService/BidExpiredResponse")]
+        System.Threading.Tasks.Task<bool> BidExpiredAsync(int productId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBidService/GetBidById", ReplyAction="http://tempuri.org/IBidService/GetBidByIdResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IBidService/GetBidByIdArgumentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
         [System.ServiceModel.FaultContractAttribute(typeof(System.ServiceModel.FaultException), Action="http://tempuri.org/IBidService/GetBidByIdFaultExceptionFault", Name="FaultException", Namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel")]
@@ -1161,10 +1186,10 @@ namespace WebAppAuctionSystem.BidServiceReference {
         [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IBidService/GetAllBidsByProductIdArgumentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
         [System.ServiceModel.FaultContractAttribute(typeof(System.ServiceModel.FaultException), Action="http://tempuri.org/IBidService/GetAllBidsByProductIdFaultExceptionFault", Name="FaultException", Namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel")]
         [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentNullException), Action="http://tempuri.org/IBidService/GetAllBidsByProductIdArgumentNullExceptionFault", Name="ArgumentNullException", Namespace="http://schemas.datacontract.org/2004/07/System")]
-        WebAppAuctionSystem.BidServiceReference.Bid[] GetAllBidsByProductId(int productId);
+        WebAppAuctionSystem.BidServiceReference.BidDto[] GetAllBidsByProductId(int productId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBidService/GetAllBidsByProductId", ReplyAction="http://tempuri.org/IBidService/GetAllBidsByProductIdResponse")]
-        System.Threading.Tasks.Task<WebAppAuctionSystem.BidServiceReference.Bid[]> GetAllBidsByProductIdAsync(int productId);
+        System.Threading.Tasks.Task<WebAppAuctionSystem.BidServiceReference.BidDto[]> GetAllBidsByProductIdAsync(int productId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBidService/GetAllEarnedBids", ReplyAction="http://tempuri.org/IBidService/GetAllEarnedBidsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/IBidService/GetAllEarnedBidsArgumentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
@@ -1234,6 +1259,14 @@ namespace WebAppAuctionSystem.BidServiceReference {
             return base.Channel.IsBidWonAsync(bid);
         }
         
+        public bool BidExpired(int productId) {
+            return base.Channel.BidExpired(productId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> BidExpiredAsync(int productId) {
+            return base.Channel.BidExpiredAsync(productId);
+        }
+        
         public WebAppAuctionSystem.BidServiceReference.BidDto GetBidById(int bidId) {
             return base.Channel.GetBidById(bidId);
         }
@@ -1258,11 +1291,11 @@ namespace WebAppAuctionSystem.BidServiceReference {
             return base.Channel.GetAllBidsByUserIdAsync(userId);
         }
         
-        public WebAppAuctionSystem.BidServiceReference.Bid[] GetAllBidsByProductId(int productId) {
+        public WebAppAuctionSystem.BidServiceReference.BidDto[] GetAllBidsByProductId(int productId) {
             return base.Channel.GetAllBidsByProductId(productId);
         }
         
-        public System.Threading.Tasks.Task<WebAppAuctionSystem.BidServiceReference.Bid[]> GetAllBidsByProductIdAsync(int productId) {
+        public System.Threading.Tasks.Task<WebAppAuctionSystem.BidServiceReference.BidDto[]> GetAllBidsByProductIdAsync(int productId) {
             return base.Channel.GetAllBidsByProductIdAsync(productId);
         }
         

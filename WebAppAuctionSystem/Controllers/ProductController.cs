@@ -372,5 +372,38 @@ namespace WebAppAuctionSystem.Controllers
             }
             return false;
         }
+        [HttpPost]
+        public ActionResult BidExpired(FormCollection collection)
+        {
+            if(!authController.IsUserLoggedIn(Request, Response))
+            {
+                return Redirect("~/Auth/Login");
+            }
+            var productId = int.Parse(collection["product-id"]);
+            var product = productServiceClient.GetProductById(productId);
+            if (!(DateTime.Now >= product.EndDate))
+            {
+                ViewBag.user = authController.GetUserIdByCookie(Request.Cookies["auth"]);
+                return Redirect("~/Products");
+            }
+            try
+            {
+                ViewBag.user = authController.GetUserLoggedUser(Request);
+                new BidServiceReference.BidServiceClient().BidExpired(product.Id);
+                return Redirect("~/Products");
+            }
+            catch (Exception e)
+            {
+                ViewBag.massError = e.Message;
+                ViewBag.products = GetAvailableProductsWithBidPrice();
+                return View("Catalog");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult BidExpired()
+        {
+            return Redirect("~/");
+        }
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AuctionSystem.Models" />
-  <xs:import schemaLocation="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/AuctionSystem.Models.DTOs" />
+  <xs:import schemaLocation="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AuctionSystem.Models" />
+  <xs:import schemaLocation="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/AuctionSystem.Models.DTOs" />
   <xs:element name="CreateProduct">
     <xs:complexType>
       <xs:sequence>
@@ -12,7 +12,7 @@
   <xs:element name="UpdateProduct">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AuctionSystem.Models" minOccurs="0" name="product" nillable="true" type="q2:Product" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AuctionSystem.Models.DTOs" minOccurs="0" name="productDto" nillable="true" type="q2:ProductDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -104,6 +104,20 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/AuctionSystem.Models" minOccurs="0" name="GetProductUsersResult" nillable="true" type="q7:ArrayOfUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakeProductUnavailable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="productId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakeProductUnavailableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MakeProductUnavailableResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

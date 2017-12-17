@@ -19,17 +19,17 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ProductService.wsdl" MetadataType="Wsdl" ID="2d41f579-8219-418f-b5cc-249ac6a058a8" SourceId="1" SourceUrl="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?wsdl" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="e8b1b570-55b9-4e84-93f5-9ec6edffad5a" SourceId="1" SourceUrl="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd4" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="bc450d16-a488-4add-b66b-8c2efa32feca" SourceId="1" SourceUrl="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd5" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="8172dd7a-e8be-4cd9-ad34-79841e7e4050" SourceId="1" SourceUrl="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd2" />
-    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="d8d0cf35-2f28-4dca-9182-ab02af9cbaec" SourceId="1" SourceUrl="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd3" />
-    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="0430aa3d-5d01-4b67-a8c3-5bc85c0bf1e4" SourceId="1" SourceUrl="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd0" />
-    <MetadataFile FileName="item5.xsd" MetadataType="Schema" ID="5124e175-9e3f-4767-bb95-3ebc07901d8b" SourceId="1" SourceUrl="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd1" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="bc86ea8c-2816-41e0-aa3c-34d34b8be056" SourceId="1" SourceUrl="http://localhost:9993/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?disco" />
+    <MetadataFile FileName="item6.xsd" MetadataType="Schema" ID="b16afe67-73e6-435f-b0ae-b54e84970f16" SourceId="1" SourceUrl="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd0" />
+    <MetadataFile FileName="item61.xsd" MetadataType="Schema" ID="7b3d4345-df1b-4c81-9f92-38f0860a2a77" SourceId="1" SourceUrl="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd1" />
+    <MetadataFile FileName="item62.xsd" MetadataType="Schema" ID="3a8cc805-aeba-43bb-8a4b-c3d07b341f07" SourceId="1" SourceUrl="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd2" />
+    <MetadataFile FileName="item63.xsd" MetadataType="Schema" ID="74c12256-e8db-4597-86eb-8ca6a769602d" SourceId="1" SourceUrl="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd3" />
+    <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="216da8f5-6645-4988-bb4d-ad25ea55e59e" SourceId="1" SourceUrl="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?disco" />
+    <MetadataFile FileName="item64.xsd" MetadataType="Schema" ID="f28520c1-ea91-4af0-a54e-818101ec9387" SourceId="1" SourceUrl="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd4" />
+    <MetadataFile FileName="ProductService1.wsdl" MetadataType="Wsdl" ID="61365c36-3912-4526-856a-432e80d4d714" SourceId="1" SourceUrl="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?wsdl" />
+    <MetadataFile FileName="item65.xsd" MetadataType="Schema" ID="78276a2f-e17d-4c40-b011-174323cfb9ff" SourceId="1" SourceUrl="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService/ProductService/?xsd=xsd5" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
