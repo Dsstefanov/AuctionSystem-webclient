@@ -71,7 +71,7 @@
 <script type="text/javascript">
     function postToBidExpired(productId) {
 
-        var form = document.createElement("form")
+        let form = document.createElement("form")
         form.setAttribute("method", "POST")
         form.setAttribute("class", "hidden")
         form.setAttribute("action", '@Url.Action("BidExpired", "Product")')
@@ -90,7 +90,7 @@
     //gets all timers then in foreach loop sets a timer foreach one of them
     jQuery('document').ready(() => {
 
-        var timers = jQuery('.timer')
+        let timers = jQuery('.timer')
         let intervals = []
         for (let i = 0; i < timers.length; i++) {
             intervals[i] = setInterval(countdown, 1000, timers[i]);
@@ -100,7 +100,7 @@
                 let timeLeft = element.childNodes[1].innerHTML;
                 if (timeLeft <= 0) {
                     let productId
-                    for (var i = 0; i < element.childNodes.length; i++) {
+                    for (let i = 0; i < element.childNodes.length; i++) {
                         if (element.childNodes[i].className === "product-id") {
                             productId = element.childNodes[i].innerHTML
                             break;

@@ -210,6 +210,13 @@
     <None Include="Connected Services\LoginServiceReference\item.disco" />
     <None Include="Connected Services\LoginServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\LoginServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\LoginServiceReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LoginServiceReference\item21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LoginServiceReference\LoginService1.wsdl" />
     <None Include="Connected Services\LoginServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -232,6 +239,24 @@
     <None Include="Connected Services\ProductServiceReference\item5.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ProductServiceReference\item6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProductServiceReference\item61.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProductServiceReference\item62.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProductServiceReference\item63.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProductServiceReference\item64.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProductServiceReference\item65.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ProductServiceReference\ProductService.wsdl" />
     <None Include="Connected Services\BidServiceReference\item.disco" />
     <None Include="Connected Services\BidServiceReference\configuration91.svcinfo" />
@@ -240,22 +265,53 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\LoginServiceReference\item1.disco" />
+    <None Include="Connected Services\ProductServiceReference\item1.disco" />
     <Content Include="Connected Services\ProductServiceReference\WebAppAuctionSystem.ProductServiceReference.ProductDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\ProductServiceReference\WebAppAuctionSystem.ProductServiceReference.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\ProductServiceReference\ProductService1.wsdl" />
     <None Include="Connected Services\UserServiceReference\item.disco" />
     <None Include="Connected Services\UserServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\UserServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\UserServiceReference\item6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserServiceReference\item61.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserServiceReference\item62.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserServiceReference\item63.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserServiceReference\item64.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserServiceReference\item65.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\UserServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\UserServiceReference\UserService1.wsdl" />
     <None Include="Connected Services\ZipServiceReference\item.disco" />
     <None Include="Connected Services\ZipServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\ZipServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\ZipServiceReference\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ZipServiceReference\item31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ZipServiceReference\item32.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ZipServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -267,6 +323,8 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\UserServiceReference\item1.disco" />
+    <None Include="Connected Services\ZipServiceReference\item1.disco" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -329,6 +387,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\ZipServiceReference\ZipService.wsdl" />
+    <None Include="Connected Services\ZipServiceReference\ZipService1.wsdl" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

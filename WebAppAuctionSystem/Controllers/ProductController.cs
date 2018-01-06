@@ -278,19 +278,19 @@ namespace WebAppAuctionSystem.Controllers
                         return Show(productId);
                     }
                 }
-                //if (IsUserHoldingLastBid(userId, productId))
-                //{
-                //    ViewBag.massError = "You are not allowed to overbid yourself";
-                //    if (formIndex == 1)
-                //    {
-                //        ViewBag.products = GetAvailableProductsWithBidPrice();
-                //        return View("Catalog");
-                //    }
-                //    else
-                //    {
-                //        return Show(productId);
-                //    }
-                //}
+                if (IsUserHoldingLastBid(userId, productId))
+                {
+                    ViewBag.massError = "You are not allowed to overbid yourself";
+                    if (formIndex == 1)
+                    {
+                        ViewBag.products = GetAvailableProductsWithBidPrice();
+                        return View("Catalog");
+                    }
+                    else
+                    {
+                        return Show(productId);
+                    }
+                }
                 BidServiceReference.BidServiceClient bidServiceClient = new BidServiceReference.BidServiceClient();
                 if (bidServiceClient.CheckCoinsValid(productId, coins))
                 {
@@ -308,9 +308,9 @@ namespace WebAppAuctionSystem.Controllers
                             return Show(productId);
                         }
                     }
-                    catch (Exception)
+                    catch (Exception e)
                     {
-                        ViewBag.massError = "Internal server error, please try again after 5 minutes";
+                        ViewBag.massError = e;
                         if (formIndex == 1)
                         {
                             var coinsValue = new Dictionary<int, double>

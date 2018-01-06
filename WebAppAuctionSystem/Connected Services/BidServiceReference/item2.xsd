@@ -30,20 +30,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="BidExpired">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="productId" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="BidExpiredResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="BidExpiredResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GetBidById">
     <xs:complexType>
       <xs:sequence>
@@ -136,6 +122,20 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="CheckCoinsValidResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BidExpired">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="productId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BidExpiredResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BidExpiredResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

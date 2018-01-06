@@ -286,101 +286,6 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IBidService_BidExpired_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IBidService_BidExpired_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IBidService_BidExpired_ArgumentExceptionFault_Fault">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IBidService_BidExpired_FaultExceptionFault_Fault">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IBidService_BidExpired_ArgumentNullExceptionFault_Fault">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IBidService_GetBidById_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -989,6 +894,44 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IBidService_BidExpired_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IBidService_BidExpired_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:9991/Design_Time_Addresses/AuctionSystem.WcfService/BidService/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -1030,21 +973,6 @@
   <wsdl:message name="IBidService_IsBidWon_ArgumentNullExceptionFault_FaultMessage">
     <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/System" name="detail" element="q6:ArgumentNullException" />
   </wsdl:message>
-  <wsdl:message name="IBidService_BidExpired_InputMessage">
-    <wsdl:part name="parameters" element="tns:BidExpired" />
-  </wsdl:message>
-  <wsdl:message name="IBidService_BidExpired_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BidExpiredResponse" />
-  </wsdl:message>
-  <wsdl:message name="IBidService_BidExpired_ArgumentExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/System" name="detail" element="q7:ArgumentException" />
-  </wsdl:message>
-  <wsdl:message name="IBidService_BidExpired_FaultExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q8:FaultException" />
-  </wsdl:message>
-  <wsdl:message name="IBidService_BidExpired_ArgumentNullExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/System" name="detail" element="q9:ArgumentNullException" />
-  </wsdl:message>
   <wsdl:message name="IBidService_GetBidById_InputMessage">
     <wsdl:part name="parameters" element="tns:GetBidById" />
   </wsdl:message>
@@ -1052,13 +980,13 @@
     <wsdl:part name="parameters" element="tns:GetBidByIdResponse" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetBidById_ArgumentExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/System" name="detail" element="q10:ArgumentException" />
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/System" name="detail" element="q7:ArgumentException" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetBidById_FaultExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q11:FaultException" />
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q8:FaultException" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetBidById_ArgumentNullExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/System" name="detail" element="q12:ArgumentNullException" />
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/System" name="detail" element="q9:ArgumentNullException" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetAllBidsByProductName_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllBidsByProductName" />
@@ -1067,13 +995,13 @@
     <wsdl:part name="parameters" element="tns:GetAllBidsByProductNameResponse" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetAllBidsByProductName_ArgumentExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/System" name="detail" element="q13:ArgumentException" />
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/System" name="detail" element="q10:ArgumentException" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetAllBidsByProductName_FaultExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q14:FaultException" />
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q11:FaultException" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetAllBidsByProductName_ArgumentNullExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/System" name="detail" element="q15:ArgumentNullException" />
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/System" name="detail" element="q12:ArgumentNullException" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetAllBidsByUserId_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllBidsByUserId" />
@@ -1082,13 +1010,13 @@
     <wsdl:part name="parameters" element="tns:GetAllBidsByUserIdResponse" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetAllBidsByUserId_ArgumentExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/System" name="detail" element="q16:ArgumentException" />
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/System" name="detail" element="q13:ArgumentException" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetAllBidsByUserId_FaultExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q17:FaultException" />
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q14:FaultException" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetAllBidsByUserId_ArgumentNullExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/System" name="detail" element="q18:ArgumentNullException" />
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/System" name="detail" element="q15:ArgumentNullException" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetAllBidsByProductId_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllBidsByProductId" />
@@ -1097,13 +1025,13 @@
     <wsdl:part name="parameters" element="tns:GetAllBidsByProductIdResponse" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetAllBidsByProductId_ArgumentExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/System" name="detail" element="q19:ArgumentException" />
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/System" name="detail" element="q16:ArgumentException" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetAllBidsByProductId_FaultExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q20:FaultException" />
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q17:FaultException" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetAllBidsByProductId_ArgumentNullExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/System" name="detail" element="q21:ArgumentNullException" />
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/System" name="detail" element="q18:ArgumentNullException" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetAllEarnedBids_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEarnedBids" />
@@ -1112,13 +1040,13 @@
     <wsdl:part name="parameters" element="tns:GetAllEarnedBidsResponse" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetAllEarnedBids_ArgumentExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/System" name="detail" element="q22:ArgumentException" />
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/System" name="detail" element="q19:ArgumentException" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetAllEarnedBids_FaultExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q23:FaultException" />
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q20:FaultException" />
   </wsdl:message>
   <wsdl:message name="IBidService_GetAllEarnedBids_ArgumentNullExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/System" name="detail" element="q24:ArgumentNullException" />
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/System" name="detail" element="q21:ArgumentNullException" />
   </wsdl:message>
   <wsdl:message name="IBidService_SetWinnersForProducts_InputMessage">
     <wsdl:part name="parameters" element="tns:SetWinnersForProducts" />
@@ -1127,19 +1055,25 @@
     <wsdl:part name="parameters" element="tns:SetWinnersForProductsResponse" />
   </wsdl:message>
   <wsdl:message name="IBidService_SetWinnersForProducts_ArgumentExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/System" name="detail" element="q25:ArgumentException" />
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/System" name="detail" element="q22:ArgumentException" />
   </wsdl:message>
   <wsdl:message name="IBidService_SetWinnersForProducts_FaultExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q26:FaultException" />
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q23:FaultException" />
   </wsdl:message>
   <wsdl:message name="IBidService_SetWinnersForProducts_ArgumentNullExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/System" name="detail" element="q27:ArgumentNullException" />
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/System" name="detail" element="q24:ArgumentNullException" />
   </wsdl:message>
   <wsdl:message name="IBidService_CheckCoinsValid_InputMessage">
     <wsdl:part name="parameters" element="tns:CheckCoinsValid" />
   </wsdl:message>
   <wsdl:message name="IBidService_CheckCoinsValid_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckCoinsValidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBidService_BidExpired_InputMessage">
+    <wsdl:part name="parameters" element="tns:BidExpired" />
+  </wsdl:message>
+  <wsdl:message name="IBidService_BidExpired_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BidExpiredResponse" />
   </wsdl:message>
   <wsdl:portType name="IBidService">
     <wsdl:operation name="MakeBid">
@@ -1155,13 +1089,6 @@
       <wsdl:fault wsaw:Action="http://tempuri.org/IBidService/IsBidWonArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IBidService_IsBidWon_ArgumentExceptionFault_FaultMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IBidService/IsBidWonFaultExceptionFault" name="FaultExceptionFault" message="tns:IBidService_IsBidWon_FaultExceptionFault_FaultMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IBidService/IsBidWonArgumentNullExceptionFault" name="ArgumentNullExceptionFault" message="tns:IBidService_IsBidWon_ArgumentNullExceptionFault_FaultMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BidExpired">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBidService/BidExpired" message="tns:IBidService_BidExpired_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBidService/BidExpiredResponse" message="tns:IBidService_BidExpired_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IBidService/BidExpiredArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:IBidService_BidExpired_ArgumentExceptionFault_FaultMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IBidService/BidExpiredFaultExceptionFault" name="FaultExceptionFault" message="tns:IBidService_BidExpired_FaultExceptionFault_FaultMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IBidService/BidExpiredArgumentNullExceptionFault" name="ArgumentNullExceptionFault" message="tns:IBidService_BidExpired_ArgumentNullExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetBidById">
       <wsdl:input wsaw:Action="http://tempuri.org/IBidService/GetBidById" message="tns:IBidService_GetBidById_InputMessage" />
@@ -1208,6 +1135,10 @@
     <wsdl:operation name="CheckCoinsValid">
       <wsdl:input wsaw:Action="http://tempuri.org/IBidService/CheckCoinsValid" message="tns:IBidService_CheckCoinsValid_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBidService/CheckCoinsValidResponse" message="tns:IBidService_CheckCoinsValid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BidExpired">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBidService/BidExpired" message="tns:IBidService_BidExpired_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBidService/BidExpiredResponse" message="tns:IBidService_BidExpired_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IBidService" type="tns:IBidService">
@@ -1256,29 +1187,6 @@
       </wsdl:fault>
       <wsdl:fault name="ArgumentNullExceptionFault">
         <wsp:PolicyReference URI="#WSHttpBinding_IBidService_IsBidWon_ArgumentNullExceptionFault_Fault" />
-        <soap12:fault use="literal" name="ArgumentNullExceptionFault" namespace="" />
-      </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="BidExpired">
-      <soap12:operation soapAction="http://tempuri.org/IBidService/BidExpired" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IBidService_BidExpired_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IBidService_BidExpired_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
-      <wsdl:fault name="ArgumentExceptionFault">
-        <wsp:PolicyReference URI="#WSHttpBinding_IBidService_BidExpired_ArgumentExceptionFault_Fault" />
-        <soap12:fault use="literal" name="ArgumentExceptionFault" namespace="" />
-      </wsdl:fault>
-      <wsdl:fault name="FaultExceptionFault">
-        <wsp:PolicyReference URI="#WSHttpBinding_IBidService_BidExpired_FaultExceptionFault_Fault" />
-        <soap12:fault use="literal" name="FaultExceptionFault" namespace="" />
-      </wsdl:fault>
-      <wsdl:fault name="ArgumentNullExceptionFault">
-        <wsp:PolicyReference URI="#WSHttpBinding_IBidService_BidExpired_ArgumentNullExceptionFault_Fault" />
         <soap12:fault use="literal" name="ArgumentNullExceptionFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
@@ -1428,6 +1336,17 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#WSHttpBinding_IBidService_CheckCoinsValid_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BidExpired">
+      <soap12:operation soapAction="http://tempuri.org/IBidService/BidExpired" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IBidService_BidExpired_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IBidService_BidExpired_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
