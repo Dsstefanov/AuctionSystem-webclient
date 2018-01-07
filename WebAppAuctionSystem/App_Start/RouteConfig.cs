@@ -32,6 +32,12 @@ namespace WebAppAuctionSystem
             );
 
             routes.MapRoute(
+                name: "Coins purchase",
+                url: "Users/PurchaseCoins/{userId}",
+                defaults: new { controller = "User", action = "PurchaseCoins", userId = @"\d+" }
+            );
+
+            routes.MapRoute(
                 name: "Catalog",
                 url: "Products",
                 defaults: new { controller = "Product", action = "Index" }

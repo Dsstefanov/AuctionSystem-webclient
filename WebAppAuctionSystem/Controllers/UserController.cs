@@ -61,7 +61,7 @@ namespace WebAppAuctionSystem.Controllers
         [HttpPost]
         public ActionResult Edit(FormCollection collection, int userId)
         {
-            if(authController.IsUserLoggedIn(Request, Response))
+            if (!authController.IsUserLoggedIn(Request, Response))
             {
                 return Redirect("~/auth/login");
             }
@@ -255,5 +255,34 @@ namespace WebAppAuctionSystem.Controllers
                 return View("Edit");
             }
         }
+
+        [HttpPost]
+        public ActionResult PurchaseCoins(FormCollection form)
+        {
+            if (!authController.IsUserLoggedIn(Request, Response))
+            {
+                return Redirect("~/auth/login");
+            }
+            int coins = int.Parse(form["coins"]);
+            var userClient = new UserServiceReference.UserServiceClient();
+            if (coins <= 0)
+            {
+                return RedirectToAction("Edit");
+            }
+            var currentUser = authController.GetUserLoggedUser(Request);
+            currentUser.Coins += coins;
+
+            try
+            {
+                userClient.UpdateUser(currentUser);
+            }
+            catch (Exception)
+            {
+                @ViewBag.coinsPurchaseError = "pesho";
+            }
+
+            return RedirectToAction("Edit");
+            
+            }
+        }
     }
-}
